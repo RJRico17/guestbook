@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="https://static.thenounproject.com/png/131562-200.png">
+    <title>RJ's contact info sheet</title>
+</head>
+<body>
+    <form action="/thankyou" method="post">
+        <fieldset class="form-container">
+            <legend>Contact Information</legend>
+            <div class="row">
+                <label>First Name: <input type="text" name="fname" id="fname"></label>
+                <label>Last Name: <input type="text" name="lname" id="lname"></label>
+                <label>Job Title: <input type="text" name="title" id="title"></label>
+            </div>
+            <div class="row">
+                <label>Company: <input type="text" name="company" id="company"></label>
+                <label>Linkedin URL: <input type="text" name="linkedin" id="linkedin"></label>
+                <label>Email Address: <input type="text" name="email" id="email"></label>
+            </div>
+            <div class="row">
+                <label>How did we meet?
+                    <select name="meet" id="meet">
+                        <option value="none">Please Select: </option>
+                        <option value="none">School</option>
+                        <option value="none">Work</option>
+                        <option value="none">Perchance</option>
+                    </select>
+                </label>
+                <label>Other (Please specify): <input type="text" name="othermeet" id="othermeet"></input></label>
+            </div>
+            <div class="row">
+                <label>Message <textarea id="message" rows="4" cols="40"></textarea></label>
+            </div>
+            <div class="row">
+                <label><input type="radio" name="mailing" id="mailing" value="yes"></input> Please add me to the mailing list</label>
+            </div>
+            <div class="row">
+                
+            <p>How would you like to send this email?</p>
+                <label>HTML <input type="radio" id="html" name="format" value="html"></input></label>
+                <label>Text <input type="radio" id="text" name="format" value="text"></label>
+                <label><button id="submitBtn"> Submit! </button></label>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
