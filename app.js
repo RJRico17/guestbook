@@ -11,12 +11,12 @@ app.listen(PORT, (req,res) => {
 })
 
 app.get('/', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/index.html`);
+    res.sendFile(`${import.meta.dirname}/views/index.html`);
 })
 
 app.post('/thankyou', (req,res) => {
     info.push(req.body);
-    res.sendFile(`${import.meta.dirname}/thankyou.html`);
+    res.sendFile(`${import.meta.dirname}/views/thankyou.html`);
     console.log(req.body);
 });
 
