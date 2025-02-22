@@ -19,3 +19,6 @@ label {
     font-weight: bold;
     padding: 1em;
 }
+#adminlink {
+    text-align: center;
+}
