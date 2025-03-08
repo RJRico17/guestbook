@@ -1,4 +1,5 @@
 import express from "express";
+import validateForm from './public/script/validation.js';
 const app = express();
 app.use(express.static('public'));
 app.use(express.static('views'));
@@ -15,30 +16,30 @@ app.listen(PORT, (req,res) => {
 app.get('/', (req, res) => {
     res.render(`index`);
 })
-
 app.post('/thankyou', (req,res) => {
-    if (req.body.fname === "" || req.body.lname === "" || req.body.email === "") {
-        res.send("Invalid Input!");
+    const contact = {
+        firstName: req.body.fname,
+        lastName: req.body.lname,
+        jobTitle: req.body.title,
+        company: req.body.company,
+        linkedin: req.body.linkedin,
+        email: req.body.email,
+        howMeet: req.body.meet,
+        otherMeet: req.body.othermeet,
+        message: req.body.message,
+        mailing: req.body.mailing,
+        format: req.body.format,
+        dateTime: new Date()
     }
-    else {
-        const contact = {
-            firstName: req.body.fname,
-            lastName: req.body.lname,
-            jobTitle: req.body.title,
-            company: req.body.company,
-            linkedin: req.body.linkedin,
-            email: req.body.email,
-            howMeet: req.body.meet,
-            otherMeet: req.body.othermeet,
-            message: req.body.message,
-            mailing: req.body.mailing,
-            format: req.body.format,
-            dateTime: new Date()
-        }
-        contacts.push(contact);
-        console.log(contact);
-        res.render(`thankyou`,{contact});
+    const result = validateForm(contact);
+    if (!result.isValid) {
+        console.log(result.errors);
+        res.send(result.errors);
+        return;
     }
+    contacts.push(contact);
+    console.log(contact);
+    res.render(`thankyou`,{contact});
 });
 
 app.get(`/admin`, (req,res) => {
